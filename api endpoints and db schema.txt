@@ -1,0 +1,57 @@
+1. CORE FEATURES:
+    1. user sign in
+    2. enter business details, target audience, social media platform, tone, 
+     content type
+    3. backend sends prompt to ai model
+    4. ai model generates content
+    5. save generated content in database
+
+2.  API ENDPOINTS:
+    1. Authentication (important)
+        1. POST /api/auth/register - Register user
+        2. POST /api/auth/login    - login
+        3. GET  /api/auth/me       - current user
+
+    2. AI content generation (important)
+        1. POST     /api/content/generate       - generate content
+        2. POST     /api/content/image          - generate image
+        3. GET      /api/content/image          - get history
+        4. DELETE   /api/content/:id          - delete content
+
+    3. Campaign
+        1. POST  /api/campaign/ideas          - Generate campaign ideas
+        2. POST  /api/campaign/marketing      - Generate marketing campaign
+
+FOLDER STRUCTURE:
+    backend/
+        │
+        ├── config/ (Database and OpenAI setup)
+        │   ├── db.js
+        │   └── openai.js
+        │
+        ├── controllers/ (Request handling logic)
+        │   ├── authController.js
+        │   └── contentController.js
+        │
+        ├── model/ (MongoDB schemas)
+        │   ├── User.js
+        │   └── Content.js
+        │
+        ├── routes/ (API endpoints)
+        │   ├── authRoutes.js
+        │   └── contentRoutes.js
+        │
+        ├── middleware/ (Authentication checking)
+        │   └── authMiddleware.js
+        │
+        ├── services/ (AI/OpenAI logic)
+        │   └── aiService.js
+        │
+        ├── utils/ (Helper functions)
+        │   └── generateToken.js
+        │
+        ├── app.js (Express app setup)
+        ├── server.js (Starts server)
+        ├── .env
+        ├── package.json
+        └── README.md
