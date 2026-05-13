@@ -8,11 +8,30 @@ import imageRoutes from "./routes/imageRoutes.js";
 
 const app = express(); //Creates backend server object.
 
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://ai-social-media-content-pipeline.vercel.app"
+  );
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET,POST,PUT,DELETE,OPTIONS"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization"
+  );
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
 app.use(cors({
  origin: 
     "https://ai-social-media-content-pipeline.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 })); //Allows requests from frontend.
 
