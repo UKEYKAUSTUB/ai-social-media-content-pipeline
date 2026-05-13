@@ -8,7 +8,11 @@ import imageRoutes from "./routes/imageRoutes.js";
 
 const app = express(); //Creates backend server object.
 
-app.use(cors()); //Allows requests from frontend.
+app.use(cors({
+  origin:
+  "ai-social-media-content-pipeline.vercel.app",
+  credentials:true,
+})); //Allows requests from frontend.
 
 app.use(express.json()); //Allows backend to read JSON request body.
 
