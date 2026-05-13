@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     try {
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://ai-social-media-content-pipeline-81g3.onrender.com/api/auth/login",
         data
       );
 
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     try {
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://ai-social-media-content-pipeline-81g3.onrender.com/api/auth/register",
         data
       );
 
@@ -74,7 +74,7 @@ export const AuthProvider = ({ children }) => {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/auth/profile",
+        "https://ai-social-media-content-pipeline-81g3.onrender.com/api/auth/profile",
         {
           headers: {
             Authorization: `Bearer ${token}`,
