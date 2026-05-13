@@ -1,1 +1,0 @@
-the .env is not working, cant access variables and keys defined in it

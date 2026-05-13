@@ -1,9 +1,11 @@
 import mongoose from "mongoose"; //Mongoose helps Node.js communicate with MongoDB.
+import dns from "node:dns/promises";   
+dns.setServers(["1.1.1.1", "1.0.0.1"]);
 //Database connection takes time so we use async await
 const connectDB = async () => {
   try {
     
-    const conn = await mongoose.connect('mongodb+srv://adityapatil151617_db_user:TC5VBYS4TOdUDRON@cluster0.yb2r6di.mongodb.net/');//connect to monodb
+    const conn = await mongoose.connect(process.env.MONGO_URL);//connect to monodb
 
     console.log(`MongoDB Connected: ${conn.connection.host}`);
 
