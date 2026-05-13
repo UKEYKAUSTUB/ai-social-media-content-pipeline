@@ -9,10 +9,8 @@ import imageRoutes from "./routes/imageRoutes.js";
 const app = express(); //Creates backend server object.
 
 app.use(cors({
- origin: [
+ origin: 
     "https://ai-social-media-content-pipeline.vercel.app",
-    "http://localhost:5173"
-  ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
