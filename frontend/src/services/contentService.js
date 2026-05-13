@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/content";
+const API = "https://ai-social-media-content-pipeline-81g3.onrender.com";
 
 const getToken = () => {
   return localStorage.getItem("token");

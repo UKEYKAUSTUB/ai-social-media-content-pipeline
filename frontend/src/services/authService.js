@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/auth";
+const API = "https://ai-social-media-content-pipeline-81g3.onrender.com";
 
 export const registerUser = async (userData) => {
 
