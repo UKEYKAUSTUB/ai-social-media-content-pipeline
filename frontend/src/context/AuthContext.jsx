@@ -10,9 +10,14 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // LOGIN
-  const login = (userData) => {
+  const login = (data) => {
 
-  setUser(userData);
+  localStorage.setItem(
+    "token",
+    data.token
+  );
+
+  setUser(data.user);
 
 };
 
