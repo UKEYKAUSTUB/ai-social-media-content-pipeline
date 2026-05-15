@@ -37,7 +37,7 @@ function Login() {
 
       const data = await loginUser(formData);
 
-login(data.user);
+      login(data);
 
       toast.success("Login Successful");
 
