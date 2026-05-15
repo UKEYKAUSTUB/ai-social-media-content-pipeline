@@ -45,7 +45,7 @@ function Login() {
 
       if (success) {
 
-        navigate("/dashboard");
+        window.location.href = "/dashboard";
 
       }
 
