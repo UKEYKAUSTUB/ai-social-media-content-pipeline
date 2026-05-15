@@ -35,13 +35,13 @@ function Login() {
 
     try {
 
-      const data = await loginUser(formData);
+    const success = await login(formData);
 
-      login(data);
+if (success) {
 
-      toast.success("Login Successful");
+  navigate("/dashboard");
 
-      navigate("/dashboard");
+}
 
     } catch (error) {
 

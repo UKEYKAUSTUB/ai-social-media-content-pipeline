@@ -10,14 +10,36 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // LOGIN
-  const login = (data) => {
+  const login = async (data) => {
 
-  localStorage.setItem(
-    "token",
-    data.token
-  );
+  try {
 
-  setUser(data.user);
+    const res = await axios.post(
+      "https://ai-social-media-content-pipeline-81g3.onrender.com/api/auth/login",
+      data
+    );
+
+    localStorage.setItem(
+      "token",
+      res.data.token
+    );
+
+    setUser(res.data.user);
+
+    toast.success("Login Successful");
+
+    return true;
+
+  } catch (error) {
+
+    toast.error(
+      error?.response?.data?.message ||
+      "Login Failed"
+    );
+
+    return false;
+
+  }
 
 };
 
